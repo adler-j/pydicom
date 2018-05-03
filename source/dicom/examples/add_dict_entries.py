@@ -26,9 +26,7 @@ new_dict_items = {
 DicomDictionary.update(new_dict_items)
 
 # Update the reverse mapping from name to tag
-new_names_dict = dict([(CleanName(tag), tag) for tag in
-                       new_dict_items])
-NameDict.update(new_names_dict)
+NameDict.update((CleanName(tag), tag) for tag in new_dict_items)
 
 # Test that it is working
 ds = Dataset()  # or could get one from read_file, etc
